@@ -1,0 +1,31 @@
+--- php-phing-tasks-rchouinard-0.1/classes/rych/tasks/LessCompilerTask.php~	2011-03-30 08:23:04.000000000 +0300
++++ php-phing-tasks-rchouinard-0.1/classes/rych/tasks/LessCompilerTask.php	2011-03-30 08:23:36.509877197 +0300
+@@ -57,11 +57,10 @@
+      */
+     public function init()
+     {
+-        $reqPath = realpath(dirname(__FILE__))
+-            . DIRECTORY_SEPARATOR . 'includes';
+-        require_once $reqPath . DIRECTORY_SEPARATOR . 'lessc.inc.php';
+-
+-        return true;
++        include_once 'lessc.inc.php';
++        if (!class_exists('lessc')) {
++            throw new BuildException("To use LessCompilerTask, you must have the path to lessc.inc.php on your include_path or your \$PHP_CLASSPATH environment variable.");
++        }
+     }
+ 
+     /**
+--- php-phing-tasks-rchouinard-0.1/classes/rych/tasks/YuiCompressorTask.php~	2011-02-15 22:51:05.000000000 +0200
++++ php-phing-tasks-rchouinard-0.1/classes/rych/tasks/YuiCompressorTask.php	2011-03-30 08:48:50.946213213 +0300
+@@ -62,9 +62,7 @@
+      */
+     public function __construct()
+     {
+-        $defaultJarPath = realpath(
+-            dirname(__FILE__) . '/includes/yuicompressor-2.4.2.jar'
+-        );
++        $defaultJarPath = '/usr/share/java/yuicompressor.jar';
+ 
+         $this->_javaPath = 'java';
+         $this->_jarPath = new PhingFile($defaultJarPath);
