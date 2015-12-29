@@ -4,9 +4,10 @@ Version:	0.1
 Release:	1
 License:	New BSD
 Group:		Development/Languages/PHP
-Source0:	https://github.com/rchouinard/phing-tasks/tarball/master#/tasks.tgz
+Source0:	https://github.com/rchouinard/phing-tasks/tarball/master/tasks.tgz
 # Source0-md5:	9b10803f17807058c3a8650305af841f
 Patch0:		fixes.patch
+URL:		https://github.com/rchouinard/phing-tasks/
 Requires:	php-phing
 Suggests:	lessphp
 Suggests:	yuicompressor
