@@ -29,7 +29,7 @@ A collection of custom Phing tasks from Ryan Chouinard:
 %prep
 %setup -qc
 mv rchouinard-phing-tasks-*/* .
-%patch0 -p1
+%patch -P0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
